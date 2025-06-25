@@ -1,0 +1,417 @@
+:root {
+    --primary-color: #004d40;
+    --secondary-color: #00796b;
+    --accent-color: #ffc107;
+    --danger-color: #d32f2f;
+    --light-bg: #f1f8e9;
+    --dark-text: #212121;
+    --light-text: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 1rem;
+}
+
+section {
+    background-color: #fff;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+h2,
+h3,
+h4 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+h4 {
+    font-size: 1.1em;
+    border-bottom-style: dotted;
+}
+
+input[type="text"],
+input[type="url"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
+button.danger {
+    background-color: var(--danger-color);
+}
+
+button.danger:hover {
+    background-color: #b71c1c;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.checkbox-group label {
+    margin-right: 15px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.player-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fafafa;
+    position: relative;
+}
+
+.player-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    background-color: #ccc;
+}
+
+.player-card .player-info {
+    margin-bottom: 0.5rem;
+}
+
+.player-card .player-name {
+    display: block;
+    font-weight: bold;
+}
+
+.player-card .player-position {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.player-card button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#arrival-list li {
+    background-color: var(--light-bg);
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#arrival-list .arrival-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.score-board {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score-board #score {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+}
+
+.teams-container,
+.rankings-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.team-panel,
+.reserves-panel,
+.ranking-panel {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.reserves-panel .player-card {
+    cursor: pointer;
+}
+
+.reserves-panel .player-card:hover {
+    background-color: #e8f5e9;
+}
+
+.player-list-match .player-card {
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+.player-list-match .player-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.player-list-match .player-info {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.player-stats {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.player-stats button {
+    padding: 0 8px;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sub-manual-list .player-card {
+    cursor: pointer;
+}
+
+#sub-manual-list .player-card:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 0.5rem;
+    }
+
+    .teams-container,
+    .rankings-container {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+
+    .score-board {
+        font-size: 1.5rem;
+    }
+}
+
+/* ESTILOS PARA COLLAPSIBLE */
+.collapsible-btn {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.collapsible-btn:hover,
+.collapsible-btn.active {
+    background-color: var(--secondary-color);
+}
+
+.collapsible-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    margin-top: -1rem;
+    /* Alinha com o botão */
+    padding-top: 1rem;
+}
+
+.collapsible-content form,
+.collapsible-content h3 {
+    margin-bottom: 1rem;
+}
+
+
+/* MELHORIAS NA SEÇÃO DA PARTIDA */
+.match-actions {
+    margin-bottom: 1.5rem;
+}
+
+.team-panel h4 {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #555;
+    border-bottom-style: dashed;
+}
+
+.reserves-panel .player-card {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reserves-panel .player-card:hover {
+    background-color: #e8f5e9;
+}
+
+#late-arrival-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 2px dashed var(--secondary-color);
+    border-radius: 8px;
+}
+
+#own-goal-options .player-card {
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+#own-goal-options .player-card:hover {
+    border-color: var(--accent-color);
+}
+
+#own-goal-options .team-indicator {
+    font-size: 0.8em;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+#own-goal-options .team-a {
+    background-color: #3f51b5;
+}
+
+#own-goal-options .team-b {
+    background-color: #f44336;
+}
+
+.swap-team-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    padding: 0 5px;
+    vertical-align: middle;
+}
+.swap-team-btn:hover {
+    transform: scale(1.2);
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Futebol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>⚽ Gerenciador de Futebol</h1>
+    </header>
+
+    <main>
+        <!-- Seção 1: Gerenciamento de Jogadores (HTML CORRIGIDO) -->
+        <section id="player-management">
+            <button class="collapsible-btn">1. Gerenciar Jogadores</button>
+            <div class="collapsible-content">
+                <form id="add-player-form">
+                    <h3>Cadastrar Novo Jogador</h3>
+                    <div class="form-group">
+                        <label for="player-name">Nome:</label>
+                        <input type="text" id="player-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Posições:</label>
+                        <div id="player-positions" class="checkbox-group">
+                            <label><input type="checkbox" name="position" value="Goleiro"> Goleiro</label>
+                            <label><input type="checkbox" name="position" value="Lateral Esquerdo"> Lateral Esq.</label>
+                            <label><input type="checkbox" name="position" value="Lateral Direito"> Lateral Dir.</label>
+                            <label><input type="checkbox" name="position" value="Defensor"> Defensor</label>
+                            <label><input type="checkbox" name="position" value="Meio-campo"> Meio-campo</label>
+                            <label><input type="checkbox" name="position" value="Atacante"> Atacante</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="player-photo">URL da Foto (Opcional):</label>
+                        <input type="url" id="player-photo" placeholder="https://exemplo.com/foto.jpg">
+                    </div>
+                    <button type="submit">Adicionar Jogador</button>
+                </form>
+                
+                <h3>Jogadores Cadastrados</h3>
+                <div id="all-players-list" class="player-grid"></div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Dia do Jogo (Já estava correto) -->
+        <section id="game-day-setup">
+            <button class="collapsible-btn active">2. Dia do Jogo</button>
+            <div class="collapsible-content" style="display: block;">
+                <h3>Adicionar à Lista de Chegada</h3>
+                <div id="game-day-available-players" class="player-grid"></div>
+                
+                <div class="guest-section">
+                    <h4>Adicione um goleiro convidado:</h4>
+                    <form id="add-guest-goalie-form">
+                        <input type="text" id="guest-goalie-name" placeholder="Nome do Goleiro Convidado" required>
+                        <button type="submit">Adicionar Convidado</button>
+                    </form>
+                </div>
+
+                <h3>Lista de Chegada (Arraste para reordenar)</h3>
+                <ol id="arrival-list"></ol>
+                
+                <div class="actions">
+                    <button id="form-teams-btn">Montar Times</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Partida (Não é collapsible) -->
+        <section id="match-section" class="hidden">
+            <h2>3. Partida em Andamento</h2>
+            <div class="score-board">
+                <span id="team-a-name">Time A</span>
+                <span id="score">0 x 0</span>
+                <span id="team-b-name">Time B</span>
+            </div>
+            <div class="actions match-actions">
+                <button id="own-goal-btn" class="danger">Registrar Gol Contra</button>
+            </div>
+            
+            <div class="teams-container">
+                <div id="team-a" class="team-panel">
+                    <h3>Time A</h3>
+                    <div id="team-a-players" class="player-list-match"></div>
+                    <h4>Banco - Time A (Clique para substituir)</h4>
+                    <div id="team-a-reserves" class="player-list-match reserves-panel"></div>
+                </div>
+                <div id="team-b" class="team-panel">
+                    <h3>Time B</h3>
+                    <div id="team-b-players" class="player-list-match"></div>
+                    <h4>Banco - Time B (Clique para substituir)</h4>
+                    <div id="team-b-reserves" class="player-list-match reserves-panel"></div>
+                </div>
+            </div>
+            
+            <div id="late-arrival-section">
+                 <h3>Adicionar Jogador Atrasado</h3>
+                 <div id="late-arrival-players" class="player-grid"></div>
+            </div>
+
+            <div class="actions">
+                <button id="reset-game-btn">Encerrar e Iniciar Nova Partida</button>
+            </div>
+        </section>
+
+        <!-- Seção 4: Rankings (HTML CORRIGIDO) -->
+        <section id="rankings">
+            <button class="collapsible-btn">🏆 Rankings Gerais</button>
+            <div class="collapsible-content">
+                <div class="rankings-container">
+                    <div class="ranking-panel">
+                        <h3>Artilheiros</h3>
+                        <ol id="top-scorers-list"></ol>
+                    </div>
+                    <div class="ranking-panel">
+                        <h3>Goleiros (Gols Sofridos)</h3>
+                        <ol id="top-goalies-list"></ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="edit-player-modal" class="modal">
+        <div class="modal-content"></div>
+    </div>
+    <div id="substitution-modal" class="modal">
+        <div class="modal-content"></div>
+    </div>
+    <div id="own-goal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Quem marcou o Gol Contra?</h3>
+            <p>O gol será computado para o time adversário.</p>
+            <div id="own-goal-options" class="player-grid"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
